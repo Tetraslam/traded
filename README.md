@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# softmax trading cards
+
+**for when everyone at the house is so cracked they need their own TBPN-style trading card**
+
+A fun internal tool for [softmax](https://softmax.house) residents to create trading cards for each other, because let's be real - we're all getting poached eventually.
+
+## Why This Exists
+
+Everyone at softmax is exceptionally talented at what they do. When the inevitable $100M+ sign-on bonuses start rolling in (looking at you, AI researchers and founding engineers), we wanted a way to commemorate the moment with TBPN-style trading cards.
+
+## Stack
+- Next.js 16 (React 19)
+- TypeScript
+- Tailwind CSS 4
+- shadcn/ui components
+- html2canvas for card downloads
+- pnpm
+
+## Features
+- Live preview as you edit
+- Upload photos and company logos
+- Smart compensation formatting ($1M, $200K, etc.)
+- TBPN-authentic design (green gradient, breaking news banner, scrolling ticker)
+- Quick templates for softmax residents
+- Download as high-quality PNG (2x resolution)
+- Warm, cozy UI matching softmax aesthetic
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to start making cards.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Quick Templates
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The app includes preset templates for current softmax residents:
+- **Shresht**: Northeastern → Natural (founding engineer for AI agent payments)
+- **William**: MIT → OpenAI (research resident)
 
-## Learn More
+Just click a template and customize from there.
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
+1. Enter the person's name (or use a quick template)
+2. Upload their photo
+3. Enter origin and destination companies
+4. Optionally upload company logos (text fallback if you don't)
+5. Add sign-on bonus amount (auto-formats to $100M, etc.)
+6. Download your masterpiece
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Compensation Formatting
+Large numbers auto-format for readability:
+- 100000000 → $100M
+- 1500000 → $1.5M  
+- 200000 → $200K
+- As you type, commas appear (100,000,000)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
+- `src/components/TradingCard.tsx` - Card component with TBPN design
+- `src/components/CardEditor.tsx` - Form with templates
+- `src/app/page.tsx` - Main editor interface
+- `src/app/globals.css` - Styles + news ticker animation
+- `src/lib/formatCompensation.ts` - Number formatting utilities
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+built with love at softmax 🏠
