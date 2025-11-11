@@ -46,21 +46,17 @@ export default function Home() {
         <ThemeToggle />
       </div>
 
-      <div className="flex-1 flex flex-col px-8 pb-8">
-        <div className="text-center mb-8 space-y-2">
-          <h1 className="text-4xl font-semibold tracking-tight">
+      <div className="px-8 py-6">
+        <div className="text-center mb-6">
+          <h1 className="text-3xl font-semibold tracking-tight">
             softmax trading cards
           </h1>
-          <p className="text-muted-foreground text-sm">
-            for when everyone at the house is so cracked they deserve their own
-            trading card
-          </p>
-          <p className="text-muted-foreground/60 text-xs italic">
-            (inspired by TBPN, but actually good)
+          <p className="text-muted-foreground text-xs">
+            tbpn-style trading cards
           </p>
         </div>
 
-        <div className="flex-1 flex gap-12 justify-center items-center">
+        <div className="flex gap-12 justify-center items-stretch">
           {/* Editor */}
           <div className="w-[420px]">
             <CardEditor
@@ -72,12 +68,28 @@ export default function Home() {
             />
           </div>
 
-          {/* Preview - isolate from site theme */}
-          <div className="relative scale-[0.75]">
-            <TradingCard ref={cardRef} data={cardData} theme={cardTheme} />
-            <div className="absolute inset-0 pointer-events-none border-2 border-border shadow-2xl rounded-lg" />
+          {/* Preview - scale to match editor height */}
+          <div className="relative" style={{ height: 'fit-content' }}>
+            <div className="relative" style={{ width: '360px', height: '450px' }}>
+              <div className="absolute inset-0" style={{ transform: 'scale(0.6)', transformOrigin: 'top left', width: '600px', height: '750px' }}>
+                <TradingCard ref={cardRef} data={cardData} theme={cardTheme} />
+              </div>
+              <div className="absolute inset-0 pointer-events-none border-2 border-border shadow-2xl rounded-lg" />
+            </div>
           </div>
         </div>
+      </div>
+
+      {/* Footer */}
+      <div className="py-2 mt-26 text-center border-t border-border">
+        <a 
+          href="https://softmax.house" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+        >
+          made at softmax.house
+        </a>
       </div>
     </div>
   );
