@@ -10,7 +10,7 @@ export default function Home() {
   const [cardData, setCardData] = useState<CardData>({
     name: "Shresht Bhowmick",
     fromCompany: "Northeastern",
-    toCompany: "Vanta",
+    toCompany: "Natural",
   });
   const [cardTheme, setCardTheme] = useState<"light" | "dark">("light");
 
